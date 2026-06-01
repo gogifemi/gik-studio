@@ -947,7 +947,9 @@ p {
 
 .footer-center {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .footer-tagline {
@@ -1021,9 +1023,10 @@ p {
 
 .footer-legal-links {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  justify-content: center;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
