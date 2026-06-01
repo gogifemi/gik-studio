@@ -922,6 +922,12 @@ p {
   .footer-inner {
     grid-template-columns: 1fr;
   }
+
+  .footer-center {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
 }
 
 .footer-left {
@@ -1027,19 +1033,16 @@ p {
   flex-direction: column;
   gap: 1rem;
   text-align: center;
-  padding-left: 3rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-legal-links a {
-  color: rgba(255, 255, 255, 0.25);
-  font-size: 0.8rem;
+  color: var(--text-muted);
   text-decoration: none;
   transition: var(--transition);
 }
 
 .footer-legal-links a:hover {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--primary-neon);
 }
 
 .social-links {
