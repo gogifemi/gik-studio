@@ -81,6 +81,8 @@ const translations = {
     form_required_field: "This field is required: ",
     form_invalid_email: "Please enter a valid email address.",
     footer_tagline: "Your partner in the digital ecosystem.",
+    footer_datenschutz: "Privacy Policy",
+    footer_cookie_settings: "Cookie Settings",
     github_profile_text: "View my GitHub profile",
     github_profile_url: "https://github.com/gogifemi/gogifemi/blob/main/README.md"
   },
@@ -166,6 +168,8 @@ const translations = {
     form_required_field: "Dieses Feld ist erforderlich: ",
     form_invalid_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     footer_tagline: "Ihr Partner im digitalen Ökosystem.",
+    footer_datenschutz: "Datenschutz",
+    footer_cookie_settings: "Cookie-Einstellungen",
     github_profile_text: "GitHub Profil ansehen",
     github_profile_url: "https://github.com/gogifemi/gogifemi/blob/main/README_DE.md"
   },
@@ -251,6 +255,8 @@ const translations = {
     form_required_field: "Bu alan zorunludur: ",
     form_invalid_email: "Lütfen geçerli bir e-posta adresi girin.",
     footer_tagline: "Dijital ekosistemdeki ortağınız.",
+    footer_datenschutz: "Gizlilik Politikası",
+    footer_cookie_settings: "Çerez Ayarları",
     github_profile_text: "GitHub profilimi incele",
     github_profile_url: "https://github.com/gogifemi/gogifemi/blob/main/README_TR.md"
   }
@@ -485,7 +491,6 @@ if (contactForm) {
       })
       .then(response => response.json())
       .then(data => {
-        console.log("FormSubmit response:", data);
         if (data.success === true || data.success === "true") {
           statusDiv.innerText = t.form_success || "Thank you! Your message has been sent successfully.";
           statusDiv.classList.add('visible', 'success');
@@ -496,7 +501,6 @@ if (contactForm) {
         }
       })
       .catch(error => {
-        console.error("FormSubmit error:", error);
         statusDiv.innerText = t.form_error || "Oops! Something went wrong, please check your connection and try again.";
         statusDiv.classList.add('visible', 'error');
       })
