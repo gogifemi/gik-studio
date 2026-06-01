@@ -947,9 +947,10 @@ p {
 
 .footer-center {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
 }
 
 .footer-tagline {
@@ -1023,13 +1024,11 @@ p {
 
 .footer-legal-links {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
-  justify-content: center;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  padding-left: 3rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-legal-links a {
