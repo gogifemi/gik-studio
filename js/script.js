@@ -322,8 +322,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initialize language from localStorage or default to 'en'
-  const savedLang = localStorage.getItem('gik_lang') || 'en';
+  // Detect language: saved preference → browser locale → English
+  function detectLang() {
+    const saved = localStorage.getItem('gik_lang');
+    if (saved) return saved;
+    const l = (navigator.language || 'en').toLowerCase().split('-')[0];
+    if (l === 'de') return 'de';
+    if (l === 'tr') return 'tr';
+    return 'en';
+  }
+  const savedLang = detectLang();
   updateLanguage(savedLang);
 
   // Close switcher if clicking outside
@@ -349,6 +357,21 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     observer.observe(el);
   });
+
+  // Play hero video only when it's visible in the viewport
+  const heroVideo = document.querySelector('.hero-video-bg');
+  if (heroVideo) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          heroVideo.play();
+        } else {
+          heroVideo.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+    videoObserver.observe(heroVideo);
+  }
 
   // Go to top feature on signature-g
   const signatureG = document.querySelector('.signature-g');
@@ -482,7 +505,7 @@ if (contactForm) {
 
       const formData = new FormData(contactForm);
 
-      fetch('https://formsubmit.co/ajax/info@gikstudio.com', {
+      fetch('/contact.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json'
